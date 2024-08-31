@@ -1,2 +1,3 @@
-WebScrapping Practice
-This repository is about practicing webscrapping from the scratch.
+# **WebScrapping Practice**
+
+_This repository is about practicing webscrapping from the scratch._
