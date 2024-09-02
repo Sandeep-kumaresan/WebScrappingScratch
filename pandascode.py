@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 url="https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops"
 r = requests.get(url)
@@ -20,7 +21,12 @@ rating = soup.find_all("p",class_="review-count float-end")
 ratinglist = []
 for i in rating:
     ratinglist.append(i.text)
-print(namelist)
-print(desclist)
-print(pricelist)
-print(ratinglist)
+# print(namelist)
+# print(desclist)
+# print(pricelist)
+# print(ratinglist)
+df = pd.DataFrame({"Product name":namelist,"Prices":pricelist,"Description":desclist,"Rating":ratinglist})
+# print(df)
+df.to_csv("Laptop Details.csv")
+print("Successfully added data to csv")
+df.to_excel("Laptop_Details.xlsx")
