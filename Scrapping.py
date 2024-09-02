@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+import re
 url="https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops"
 r=requests.get(url)
 soup=BeautifulSoup(r.text,"lxml")
@@ -21,3 +21,5 @@ descall = soup.find_all("p",class_="description card-text")
 print(descall[3].text)
 #Strfind = soup.find_all(string="Pavilion")
 #print(Strfind)
+data = soup.find_all(string = re.compile("Aspire"))
+print(data)
